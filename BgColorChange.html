@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <title>Change Background Color Automatically</title>
+    <style>
+        body{
+            transition:background-color 3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>Background Color Change Automatically</h1>
+    <script>
+        const colors=['#FF5733','#33FF57','#3357FF','#F1C40F','#8E44AD'];
+        let index=0;
+
+        function changeColor(){
+            document.body.style.backgroundColor=colors[index];
+            index=(index+1) % colors.length;
+        }
+        setInterval(changeColor,1000);
+    </script>
+
+    
+</body>
+</html>
