@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <title>Textbox Validation</title>
+    <style>
+        .error{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Textbox Validation</h1>
+    <form>
+    <label for="textInput">Enter text:</label><br>
+    <input type="text" id="textbox" oninput="validateText()">
+    <p id="errorMessage" class="error"></p>
+</form>
+
+    <script>
+        function validateText(){
+            const input=document.getElementById('textbox').value;
+            const errorMessage=document.getElementById('errorMessage');
+            const hasUppercase= /[A-Z]/.test(input);
+            const hasLowercase= /[a-z]/.test(input);
+            if(input.length <5){
+                errorMessage.textContent="input must be atleast 5 characters long"
+            }
+            else if(input===""){
+                errorMessage.textContent="textbox cannot be empty";
+            }
+            else if(!hasUppercase){
+                errorMessage.textContent="input text contains atleast one uppercase character";
+            }
+            else if(!hasLowercase){
+                errorMessage.textContent="input text contains atleast one lowercase character";
+            }
+            else{
+                errorMessage.textContent="";
+            }
+        
+        }
+    </script>
+    
+</body>
+</html>
